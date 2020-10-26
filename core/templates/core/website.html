@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+
+{% block head %}
+<title>Website Detail</title>
+{% endblock %}
+
+{% block content %}
+<p>{{ object.title }}</p>
+<a href="{{ object.url }}">{{ object.url }}</a>
+<p>{{ object.description }}</p>
+<p>{{ object.get_category_display }}</p>
+<p>{{ object.get_color_display }}</p>
+<p>{% if object.save.saved %}</p>
+<a href="{{ object.get_remove_from_profile_url }}" class="btn btn-danger btn-md my-0 p">
+    Unsave
+</a>
+{% else %}
+<a href="{{ object.get_save_to_profile_url }}" class="btn btn-primary btn-md my-0 p">
+    Save
+</a>
+{% endif %}
+
+{% endblock %}
